@@ -1,0 +1,26 @@
+
+.title {
+    display: block;
+    color: black;
+    margin: 15px auto;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.content {
+    display: block;
+    margin: 15px 35%;
+    border: solid;
+    text-align: center;
+}
+
+.content textarea {
+    display: block;
+    margin: 5px auto;
+    width: 94%;
+}
+
+#anons {
+    height: 500px;
+}
