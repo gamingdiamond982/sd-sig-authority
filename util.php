@@ -91,7 +91,7 @@ function exchange_reddit_code($code) {
 function load_file($path) {
     global $priv_files_dir;
     $keyfile = fopen($priv_files_dir.$path, "r");
-    $key = fread($keyfile, filesize($path));
+    $key = fread($keyfile, filesize($priv_files_dir.$path));
     fclose($keyfile);
     return $key;
 }
