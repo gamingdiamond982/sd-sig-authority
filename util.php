@@ -89,6 +89,7 @@ function exchange_reddit_code($code) {
 
 
 function load_file($path) {
+    global $priv_files_dir;
     $keyfile = fopen($priv_files_dir.$path, "r");
     $key = fread($keyfile, filesize($path));
     fclose($keyfile);
@@ -102,6 +103,7 @@ function get_secret_key() {
 
 
 function roll_secret_key() {
+    global $piv_files_dir
     rename($priv_files_dir."priv.key", $priv_files_dir."priv.key.old");
     $new_key = bin2hex(random_bytes(32)); // using sha256 so (256 bit/32 byte) key needed
     $file = fopen($priv_files_dir."priv.key", "w");
