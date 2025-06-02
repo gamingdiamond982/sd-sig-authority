@@ -122,7 +122,7 @@ if (isset($_GET["rollkey"])) {
             <?php } else if (isset($_GET["oldkey"])) { ?>
                 <b>Here is the key used in the last election</b>
                 <textarea id="oldkey" rows=2 onclick="this.select()" readonly><?php
-                    echo htmlspecialchars(load_file($priv_files_dir."priv.key.old"));
+                    echo htmlspecialchars(load_file("priv.key.old"));
                 ?></textarea>
                 <b>Warning: rolling the key will remove the above key from the server</b>
                 <p>Ensure you no longer need it and it has been archived by the DoVR before rolling the key</p>
