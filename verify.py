@@ -44,7 +44,7 @@ def verify_uuvts(legal_anons, uuvts, key):
     # remove duplicate anonymous ids from the list of legal anons
     anons = [uuvt.split('.')[0] for uuvt in uuvts]
 
-    seen = {}
+    seen = set()
     dupes = {anon for anon in anons if anon in seen or seen.add(anon)}
     legal_anons = legal_anons.difference(dupes)
 
@@ -82,12 +82,9 @@ if __name__ == "__main__":
     
 
     voters = [line.strip() for line in open(args.vfp, 'r').readlines()]
-
-    print(uuvts)
-    print(voters)
     print("Info: Generating legal anons list")
     legal_anons = generate_legal_anons(voters, secret_key)
-    if hasattr(args, "deanon"):
+    if args.deanon:
         with open(args.deanon, 'w') as of:
             of.write(json.dumps(legal_anons))
 
